@@ -1,0 +1,87 @@
+body {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/***********************
+/* navigation styles
+***********************/
+
+#navigation {
+	background-color: #191414;
+	height: 70px;
+	padding-top: 1%;
+	padding-left: 5%;
+	padding-right: 5%;
+}
+
+#navigation a {
+	color: #FFFFFF;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#navigation img {
+	height: 175%;
+	padding-top: 0;
+}
+
+/***********************
+/* form styles
+***********************/
+
+#forms {
+	margin-top: 70px;
+	max-witdh: 50%;
+}
+
+
+/***********************
+/* main container styles
+***********************/
+
+#top {
+	margin-top: 70px;
+	background-color: #F8F8F8;
+}
+
+.jumbotron span {
+	color: #1DB954;
+}
+
+#login-button {
+	background-color: #1DB954;
+}
+
+#go {
+	background-color: #1DB954;
+}
+
+li {
+	list-style: none;
+}
+
+
+/***********************
+/* footer styles
+***********************/
+
+#footer {
+  background-color: #f9f9f9;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  width: 100%;
+  height: 30px;
+  font-weight: bold;
+  margin-top: 15%;
+  text-align: center;
+}
+
+#footer span {
+	color: #1DB954;
+}
+
+#footer a {
+	color: #191414;
+}

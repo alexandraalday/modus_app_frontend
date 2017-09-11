@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-app="modus">
+  <head>
+  <meta charset="utf-8">
+    <title>modus.</title>
+    <!---- Favicon ---->
+    <link href="./assets/Spotify_Icon_RGB_Black.png" rel="icon" type="image/png" >
+    <!---- Styles ---->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+   <!---- Scripts ---->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </head>
+
+  <body ng-controller="mainController as ctrl">
+
+  <!--   navbar  -->
+  <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" id="navigation">
+  <div class="container-fluid">
+    <div class="site-nav">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://www.spotify.com" style="color: #fffffff"><img alt="Spotify" src="./assets/Spotify_Logo_RGB_White.png" id="spotifylogo"></a>
+     <a class="navbar-brand" href="#">| modus. </span>
+    </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-if=!user.loggedIn ng-click="user.goToLogin()" ng-click="user.addForm.reset()"><a href="#">Login</a></li>
+          <li ng-if=user.loggedIn ng-click="user.logout()"><a href="#" style="color:#ffffff;">Logout</a></li>
+          <li ng-if=!user.loggedIn ng-click="user.goToRegister()"><a href="#" style="color: #ffffff;">Register</a></li>
+          <li ng-if=user.loggedIn><a href="#" style="color:#ffffff;">hello, {{user.username}}</a></li>
+          <li><a href="http://www.spotify.com" class="btn btn-success" id="getspotify">GET SPOTIFY</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div id='top' class="jumbotron">
+  <div class="container-fluid text-center" id="jumbo-dialog">
+    <h1 id='attitle' >Songs</h1>
+    <input type="text" id="filter" onkeyup="filterSongs()" placeholder="Search by mood???">
+    <div ng-repeat="song in ctrl.songs" class="songs">
+        <ul id="myUL">
+          <li><p>{{ song.title }}</p></li>
+        </ul>
+        <p><a ng-click=ctrl.deleteSong() class="btn btn-success btn-sm" id='delete-song-button' role="button">Delete</a></p>
+
+    </div>
+
+  <div class="">
+    <p><a ng-click=ctrl.updateUser() class="btn btn-success btn-sm" id='update-user-button' role="button">Update User</a></p>
+  </div>
+
+  <div class="">
+    <p><a ng-click=ctrl.deleteUser() class="btn btn-success btn-sm" id='delete-user-button' role="button">Delete User</a></p>
+  </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="footer">
+  <div class="container text-center">
+        <p class="text-muted">
+            Powered by <a href="http://spotify.com">Spotify</a>. Made with <span>&hearts;</span> by <a href="https://github.com/alexandraalday">Alexandra Alday</a> and <a href="https://github.com/2asato">Aaron Sato</a></p>
+        </p>
+  </div>
+</div>
+
+</body>
+</html>
