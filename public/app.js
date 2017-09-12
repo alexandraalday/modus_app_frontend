@@ -26,6 +26,7 @@ app.controller('mainController', ['$http', function($http) {
   // songs
   this.showSearch = true;
   this.showResults = false;
+  this.showEdit = false;
   this.searchResults = [];
   this.artist = '';
   this.song = '';
@@ -222,14 +223,44 @@ app.controller('mainController', ['$http', function($http) {
     }.bind(this));
   }
 
-// planned feature to delete song from user's saved songs list
-  this.deleteSong = function(id){
+  // edit saved song
+  this.goEdit = function(song) {
+    this.showEdit = true;
+    this.song = song;
+    console.log(song)
+  }
+
+  this.editSong = function(updatedSong){
     $http({
-      method: 'DELETE',
-      url: this.url + '/songs/' + id
+      method: 'PUT',
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      },
+      url: this.url + '/songs/' + this.song.id,
+      data: { song: { artist: updatedSong.artist, title: updatedSong.title }}
     }).then(function(response){
       console.log(response);
-      controller.logout();
+      controller.song = '';
+      controller.goProfile();
+    }, function(err){
+      console.log(err);
+      this.showEdit = false;
+    })
+}
+
+  // delete saved song
+  this.deleteSong = function(song){
+    console.log(song.id)
+    $http({
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      },
+      url: this.url + '/songs/' + song.id
+    }).then(function(response){
+      console.log(response);
+      controller.song = '';
+      controller.goProfile();
     }, function(err){
       console.log(err);
     })
