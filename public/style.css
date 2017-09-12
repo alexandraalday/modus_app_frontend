@@ -16,7 +16,7 @@ body {
 
 #navigation a {
 	color: #FFFFFF;
-	font-family: 'Cibreo', Helvetica, Arial, sans-serif;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 #navigation img {
@@ -61,7 +61,12 @@ li {
 }
 
 .btn-success	{
-	border-color: black;
+	border-color: #D51007;;
+}
+
+.btn-primary {
+	background-color: #D51007;
+	border-color: #D51007;
 }
 
 
