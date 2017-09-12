@@ -61,14 +61,16 @@
             Enter the term <i>brooding</i> and we'll find
             the top melancholic tracks for you.
         </p>
+        <!-- search -->
         <div id="search-form" class="intro-form row">
-           <div class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6">
+           <form ng-submit="ctrl.searchMood(artist, song)" class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6">
+            <input type="text" class="form-control input-lg" id="artist-name" placeholder="Artist Name" ng-model="ctrl.artist">
+            <br>
             <input type="text" class="form-control input-lg"
-                id="playlist-terms" placeholder="'brood' OR brooding " value="">
-                <br>
-                <button ng-click="ctrl.searchMood()" class="btn btn-success btn-lg" id='go'
-                role="button">Find songs</button>
-           </div>
+              id="song-title" placeholder="Song Title" ng-model="ctrl.song">
+            <br>
+            <button class="btn btn-success btn-lg" id='go' role="button">Find songs</button>
+           </form>
         </div>
       </div>
 	</div>
