@@ -1,6 +1,13 @@
-console.log('Mood...');
-
 const app = angular.module('modus', []);
+  angular.module('app', ['ngSanitize']);
+
+// whitelist last.fm
+  app.config(['$sceDelegateProvider', function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+        'self',
+        'http://ws.audioscrobbler.com/**'
+    ]);
+  }]);
 
 app.controller('mainController', ['$http', function($http) {
   const controller = this;
@@ -18,6 +25,7 @@ app.controller('mainController', ['$http', function($http) {
   this.showUpdate = false;
   // songs
   this.showSearch = true;
+  this.showResults = false;
   this.songs = [];
   this.formdata = {};
   this.searchResults = [];
@@ -176,7 +184,7 @@ app.controller('mainController', ['$http', function($http) {
       url: "http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=cher&track=believe&api_key=6103b97161ff0685106c6c3ee068dd6f&format=json"
     }).then(function(response){
       console.log(response.data.similartracks.track)
-      controller.displaySearchResults = true;
+      controller.showResults = true;
       controller.searchResults = response.data.similartracks.track;
     }, function(error){
       console.log(error);
