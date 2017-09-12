@@ -89,35 +89,35 @@ app.controller('mainController', ['$http', function($http) {
   }
 
   // update user IN PROGRESS
-  this.updateUser = function(updatedUser){
-    console.log(this.user.id)
-    console.log(updatedUser)
-    $http({
-      method: 'PUT',
-      url: this.url + '/users/' + this.user.id,
-      headers: {
-        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-      },
-      data: this.formdata
-    }).then(function(response){
-      console.log(response);
-    }, function(err){
-      console.log(err);
-    })
-  }
+  // this.updateUser = function(updatedUser){
+  //   console.log(this.user.id)
+  //   console.log(updatedUser)
+  //   $http({
+  //     method: 'PUT',
+  //     url: this.url + '/users/' + this.user.id,
+  //     headers: {
+  //       Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+  //     },
+  //     data: this.formdata
+  //   }).then(function(response){
+  //     console.log(response);
+  //   }, function(err){
+  //     console.log(err);
+  //   })
+  // }
 
   // delete user IN PROGRESS
-  this.deleteUser = function(id){
-    $http({
-      method: 'DELETE',
-      url: this.url + '/users/' + id
-    }).then(function(response){
-      console.log(response);
-      controller.logout();
-    }, function(err){
-      console.log(err);
-    })
-}
+  // this.deleteUser = function(id){
+  //   $http({
+  //     method: 'DELETE',
+  //     url: this.url + '/users/' + id
+  //   }).then(function(response){
+  //     console.log(response);
+  //     controller.logout();
+  //   }, function(err){
+  //     console.log(err);
+  //   })
+  // }
 
 // display/hide user forms
   this.goRegister = function(){
@@ -133,6 +133,12 @@ app.controller('mainController', ['$http', function($http) {
     this.showResults = false;
     this.showProfile = true;
     this.getSongs(this.user);
+  }
+  this.goSearch = function() {
+    this.showSearch = true;
+    this.showResults = false;
+    this.showProfile = false;
+    this.userSongs = [];
   }
   this.goUpdate = function() {
     this.showUpdate = true;
@@ -242,9 +248,10 @@ app.controller('mainController', ['$http', function($http) {
       console.log(response);
       controller.song = '';
       controller.goProfile();
+      controller.showEdit = false;
     }, function(err){
       console.log(err);
-      this.showEdit = false;
+      
     })
 }
 

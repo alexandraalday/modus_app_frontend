@@ -12,6 +12,7 @@ body {
 	padding-top: 1%;
 	padding-left: 5%;
 	padding-right: 5%;
+	font-size: 115%;
 }
 
 #navigation a {
@@ -19,19 +20,27 @@ body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-#navigation img {
-	height: 175%;
-	padding-top: 0;
-}
 
 /***********************
-/* form styles
+/* modal and form styles
 ***********************/
 
-#forms {
-	margin-top: 70px;
-	max-witdh: 50%;
+#login, #register {
+	margin-top: 50px;
+	padding: 0 50%;
+	margin-left: 20vw;
 }
+
+#update {
+	margin-top: 50px;
+	padding: 0 40%;
+}
+
+.modal-content {
+	width: 60%;
+}
+
+
 
 
 /***********************
@@ -44,11 +53,7 @@ body {
 }
 
 .jumbotron span {
-	color: #1DB954;
-}
-
-#login-button {
-	background-color: #1DB954;
+	color: #B00000;
 }
 
 #go {
@@ -57,6 +62,22 @@ body {
 
 li {
 	list-style: none;
+}
+
+#text {
+	padding: 0 20%;
+}
+
+/***********************
+/* result styles
+***********************/
+
+i {
+	color: #B00000;
+}
+
+#edit {
+	color: #2C6FAE;
 }
 
 
@@ -79,7 +100,7 @@ li {
 }
 
 #footer span {
-	color: #1DB954;
+	color: #B00000;
 }
 
 #footer a {
