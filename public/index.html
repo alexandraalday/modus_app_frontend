@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html ng-app="modus">
   <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>modus.</title>
     <!-- favicon -->
     <link href="./assets/Spotify_Icon_RGB_Black.png" rel="icon" type="image/png" >
@@ -95,8 +96,13 @@
       <td>{{ song.name }}</td>
       <td>{{ song.artist.name }}</td>
       <td><a href="{{ song.url }}">More Info</td>
+<<<<<<< HEAD
       <td><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></td>
 
+=======
+      <td><a href="#"><i class="fa fa-heart-o" title="Add to My Songs" aria-hidden="true" ng-click="ctrl.addSong(song)"></i></a></td>
+      
+>>>>>>> 30f2da2e69acad749423b83b065a0cfa4346b0b3
     </tr>
   </tbody>
 </table>

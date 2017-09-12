@@ -17,6 +17,7 @@ app.controller('mainController', ['$http', function($http) {
   this.user = {};
   this.users = [];
   this.userPass = {};
+  this.userSongs = [];
   this.showRegister = false;
   this.showLogin = false;
   this.loggedin = false;
@@ -29,6 +30,7 @@ app.controller('mainController', ['$http', function($http) {
   this.artist = '';
   this.song = '';
   this.songs = [];
+  this.currentSong = {};
   this.formdata = {};
  
 
@@ -59,34 +61,16 @@ app.controller('mainController', ['$http', function($http) {
     location.reload();
   }
 
-  // show a list of all users if user logged in
-  this.getUsers = function() {
-    $http({
-      url: this.url + '/users',
-      method: 'GET',
-      headers: {
-        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-      }
-    }).then(function(response) {
-      console.log(response);
-      if (response.data.status == 401){
-        this.error = 'Unauthorized';
-      } else {
-        this.users = response.data;
-      }
-    }.bind(this));
-  }
-
   // User Profile
-  this.showUser = function() {
-    $http({
-      url: this.url + '/users/' + id,
-      method: 'GET',
-    }).then(response => {
-      console.log(response);
-      this.users = response.data
-    })
-  }
+  // this.showUser = function() {
+  //   $http({
+  //     url: this.url + '/users/' + id,
+  //     method: 'GET',
+  //   }).then(response => {
+  //     console.log(response);
+  //     this.users = response.data
+  //   })
+  // }
 
   // create new user
   this.registerUser = function(userReg){
@@ -103,7 +87,7 @@ app.controller('mainController', ['$http', function($http) {
     })
   }
 
-  // update user
+  // update user IN PROGRESS
   this.updateUser = function(updatedUser){
     console.log(this.user.id)
     console.log(updatedUser)
@@ -121,7 +105,7 @@ app.controller('mainController', ['$http', function($http) {
     })
   }
 
-  // delete user
+  // delete user IN PROGRESS
   this.deleteUser = function(id){
     $http({
       method: 'DELETE',
@@ -145,7 +129,9 @@ app.controller('mainController', ['$http', function($http) {
   }
   this.goProfile = function() {
     this.showSearch = false;
+    this.showResults = false;
     this.showProfile = true;
+    this.getSongs(this.user);
   }
   this.goUpdate = function() {
     this.showUpdate = true;
@@ -191,6 +177,8 @@ app.controller('mainController', ['$http', function($http) {
       console.log(response.data.similartracks.track)
       controller.showResults = true;
       controller.searchResults = response.data.similartracks.track;
+      controller.artist = '';
+      controller.song = '';
     }, function(error){
       console.log(error);
     })
@@ -201,50 +189,54 @@ app.controller('mainController', ['$http', function($http) {
      SONG CONTROLS
   ******************/
 
-
-
-// planned feature to delete song from user's saved songs list
-//   this.deleteSong = function(id){
-//     $http({
-//       method: 'DELETE',
-//       url: this.url + '/songs/' + id
-//     }).then(function(response){
-//       console.log(response);
-//       controller.logout();
-//     }, function(err){
-//       console.log(err);
-//     })
-// }
-
-
-  this.processForm = function() {
-    console.log('processForm function ...');
-    console.log('Formdata: ', this.formdata);
+  // user can add a song to their saved songs list
+  this.addSong = function(songToAdd){
+    console.log(this.user)
+    this.currentSong = songToAdd;
     $http({
       method: 'POST',
-      url: this.url + '/songs',
-      data: this.formdata
-    }).then(function(result) {
-      console.log('Data from server: ', result);
-    })
-      .catch(err => console.log(err));
+      url: this.url + '/users/' + this.user.id + '/songs',
+      data: {song: {
+        artist: songToAdd.artist.name,
+        title: songToAdd.name,
+        image: songToAdd.image[0]['#text'],
+        user_id: controller.user.id
+      }}
+    }).then(response=>{
+      console.log(response);
+      // this.userSongs.unshift(response.data);
+    }).catch(err=> console.log(err))
+  }
+  
+ // show a list of all songs if user logged in
+  this.getSongs = function(user) {
+    $http({
+      url: this.url + '/users/' + this.user.id,
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      }
+    }).then(function(response) {
+      console.log(response.data.songs);
+      controller.userSongs = response.data.songs
+    }.bind(this));
   }
 
-  function filterSongs() {
-    let input = document.getElementById('filter');
-    let filter = input.value.toUpperCase();
-    let ul = document.getElementById("myUL");
-    let li = ul.getElementsByTagName('li');
-
-    for (i = 0; i < li.length; i++) {
-        let p = li[i].getElementsByTagName("p")[0];
-        if (p.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        } else {
-            li[i].style.display = "none";
-        }
-    }
+// planned feature to delete song from user's saved songs list
+  this.deleteSong = function(id){
+    $http({
+      method: 'DELETE',
+      url: this.url + '/songs/' + id
+    }).then(function(response){
+      console.log(response);
+      controller.logout();
+    }, function(err){
+      console.log(err);
+    })
 }
+
+
+
 
 
 }]);
