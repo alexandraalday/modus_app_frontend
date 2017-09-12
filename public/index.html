@@ -34,6 +34,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="ctrl.loggedin"><a href="#" style="color:#1DB954;">Hello, {{ctrl.user.username}}!</a></li>
+          <li ng-show="ctrl.loggedin" ng-click="ctrl.goProfile()"><a href="#">My Profile</a></li>
           <li ng-hide="ctrl.loggedin" ng-click="ctrl.goLogin()"><a href="#">Login</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.logout()"><a href="#">Logout</a></li>
           <li ng-hide="ctrl.loggedin" ng-click="ctrl.goRegister()"><a href="#">Register</a></li>
@@ -49,7 +50,7 @@
 
  
  	<!-- main jumbotron for primary message/call to action -->
-    <div id='top' class="jumbotron">
+    <div ng-show="ctrl.showSearch" id='top' class="jumbotron">
       <div class="container-fluid text-center" id="jumbo-dialog">
         <h1 id='title' >modus.</h1>
         <p  class="lead"> Find songs to fit your mood.</p>
@@ -71,7 +72,8 @@
       </div>
 	</div>
 
-<table class="table table-hover">
+<!-- song results -->
+<table ng-show="ctrl.showSearch" class="table table-hover">
   <thead>
     <tr>
       <th>Song</th>
@@ -89,18 +91,8 @@
 </table>
 
 
-
-
-
-  	
-    <!-- only displays user info is registered user is logged in --> 
-  	<h4 ng-click="ctrl.getUsers()">Click to see secret stuff</h4>
-  	<div> {{ ctrl.error }} </div>
-  	<div ng-repeat="user in ctrl.users">
-  		<h1>{{ user.username }}</h1>
-  	</div>
-
-
+<!-- profile section -->
+  <section id="profile" ng-include="'./user.html'"></section>
 
 
 
