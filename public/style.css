@@ -24,6 +24,25 @@ body {
 	padding-top: 0;
 }
 
+#a,#a:visited,#a:hover,#a:active{
+  -webkit-backface-visibility:hidden;
+          backface-visibility:hidden;
+	position:relative;
+  transition:0.5s color ease;
+	text-decoration:none;
+	color:#81b3d2;
+	font-size:1em;
+}
+#a:hover{
+	color:#d73444;
+}
+#a.after:after{
+  bottom:-0.25em;
+}
+
+a.second:after{
+  right:0;
+}
 
 /***********************
 /* form styles
