@@ -7,7 +7,7 @@ body {
 ***********************/
 
 #navigation {
-	background-color: red;
+	background-color: #D51007;
 	height: 70px;
 	padding-top: 1%;
 	padding-left: 5%;
@@ -16,7 +16,7 @@ body {
 
 #navigation a {
 	color: #FFFFFF;
-	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Cibreo', Helvetica, Arial, sans-serif;
 }
 
 #navigation img {
@@ -45,15 +45,15 @@ body {
 }
 
 .jumbotron span {
-	color: red;
+	color: #D51007;
 }
 
 #login-button {
-	background-color: red;
+	background-color: #D51007;
 }
 
 #go {
-	background-color: red;
+	background-color: #D51007;
 }
 
 li {
@@ -84,7 +84,7 @@ li {
 }
 
 #footer span {
-	color: red;
+	color: #D51007;
 }
 
 #footer a {
