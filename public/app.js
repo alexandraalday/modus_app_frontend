@@ -5,7 +5,7 @@ const app = angular.module('modus', []);
   app.config(['$sceDelegateProvider', function($sceDelegateProvider) {
     $sceDelegateProvider.resourceUrlWhitelist([
         'self',
-        'http://ws.audioscrobbler.com/**'
+        'https://ws.audioscrobbler.com/**'
     ]);
   }]);
 
@@ -178,10 +178,10 @@ app.controller('mainController', ['$http', function($http) {
   console.log(this.artist)
   this.song = this.song.split(' ').join('+');
   console.log(this.song)
-  console.log("http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=" + this.artist + "&track=" + this.song +"&api_key=6103b97161ff0685106c6c3ee068dd6f&format=json")
+  console.log("https://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=" + this.artist + "&track=" + this.song +"&api_key=6103b97161ff0685106c6c3ee068dd6f&format=json")
     $http({
       method: 'GET',
-      url: "http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=" + this.artist + "&track=" + this.song +"&api_key=6103b97161ff0685106c6c3ee068dd6f&format=json"
+      url: "https://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=" + this.artist + "&track=" + this.song +"&api_key=6103b97161ff0685106c6c3ee068dd6f&format=json"
     }).then(function(response){
       console.log(response.data.similartracks.track)
       controller.showResults = true;
