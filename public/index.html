@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>modus.</title>
     <!-- favicon -->
-    <link href="./assets/Spotify_Icon_RGB_Black.png" rel="icon" type="image/png" >
+    <link href="" rel="icon" type="image/png" >
     <!-- styles -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -31,15 +31,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-     <a class="navbar-brand" href="#" ng-click="ctrl.goSearch()">modus. </span>
+     <a class="navbar-brand" href="#" ng-click="ctrl.goSearch()">modus.</a>
     </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li ng-show="ctrl.loggedin"><a href="#" style="color:#1DB954;">Hello, {{ctrl.user.username}}!</a></li>
+          <li ng-show="ctrl.loggedin"><a href="#" style="color:#E50000;">Hello, {{ctrl.user.username}}!</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.goProfile()"><a href="#">My Profile</a></li>
-          <li ng-hide="ctrl.loggedin" ng-click="ctrl.goLogin()"><a href="#">Login</a></li>
+          <li ng-hide="ctrl.loggedin" ng-click="ctrl.goLogin()"><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.logout()"><a href="#">Logout</a></li>
-          <li ng-hide="ctrl.loggedin" ng-click="ctrl.goRegister()"><a href="#">Register</a></li>
+          <li ng-hide="ctrl.loggedin" ng-click="ctrl.goRegister()"><a href="#" data-toggle="modal" data-target="#register">Register</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div>
@@ -54,17 +54,15 @@
  	<!-- main jumbotron for primary message/call to action -->
     <div ng-show="ctrl.showSearch" id='top' class="jumbotron">
       <div class="container-fluid text-center" id="jumbo-dialog">
-        <h1 id='title' >modus.</h1>
+        <h1 id='title' >modus<span>.</span></h1>
         <p  class="lead"> Find songs to fit your mood.</p>
         <p id='text'>
-            <span>modus</span> searches the top songs on Spotify that match your
-            search criteria.  Looking for the best <i>brooding</i> tracks?
-            Enter the term <i>brooding</i> and we'll find
-            the top melancholic tracks for you.
+            Looking for the best <i>energetic</i> tracks?
+            Enter the artist's name and title of a song that makes you feel similarly. Modus will serve up 100 songs to make you feel the same. <br/>Log in to save the song to your list for later. 
         </p>
         <!-- search -->
         <div id="search-form" class="intro-form row">
-           <form ng-submit="ctrl.searchMood(artist, song)" class="col-xs-offset-1 col-xs-10 col-sm-offset-3 col-sm-6">
+           <form ng-submit="ctrl.searchMood(artist, song)" class="col-xs-offset-1 col-xs-6 col-sm-offset-3 col-sm-6">
             <input type="text" class="form-control input-lg" id="artist-name" placeholder="Artist Name" ng-model="ctrl.artist">
             <br>
             <input type="text" class="form-control input-lg"
@@ -96,7 +94,7 @@
       <td>{{ song.name }}</td>
       <td>{{ song.artist.name }}</td>
       <td><a href="{{ song.url }}">More Info</td>
-      <td><a href="#"><i class="fa fa-heart-o" title="Add to My Songs" aria-hidden="true" ng-click="ctrl.addSong(song)"></i></a></td>
+      <td><a href="#"><i id="like" class="fa fa-heart-o" title="Add to My Songs" aria-hidden="true" ng-click="ctrl.addSong(song)"></i></a></td>
       
     </tr>
   </tbody>
@@ -118,7 +116,7 @@
     <div id="footer">
       <div class="container text-center">
             <p class="text-muted">
-                Powered by <a href="http://spotify.com">Spotify</a>. Made with <span>&hearts;</span> by <a href="https://github.com/alexandraalday">Alexandra Alday</a> and <a href="https://github.com/2asato">Aaron Sato</a></p>
+                Powered by <a href="http://www.last.fm">Last.fm</a>. Made with <span>&hearts;</span> by <a href="https://github.com/alexandraalday">Alexandra Alday</a> and <a href="https://github.com/2asato">Aaron Sato</a></p>
             </p>
       </div>
 	</div>
