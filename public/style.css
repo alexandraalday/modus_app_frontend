@@ -12,6 +12,7 @@ body {
 	padding-top: 1%;
 	padding-left: 5%;
 	padding-right: 5%;
+	font-size: 115%;
 }
 
 #navigation a {
@@ -19,10 +20,6 @@ body {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-#navigation img {
-	height: 175%;
-	padding-top: 0;
-}
 
 #a,#a:visited,#a:hover,#a:active{
   -webkit-backface-visibility:hidden;
@@ -45,13 +42,25 @@ a.second:after{
 }
 
 /***********************
-/* form styles
+/* modal and form styles
 ***********************/
 
-#forms {
-	margin-top: 70px;
-	max-witdh: 50%;
+#login, #register {
+	margin-top: 50px;
+	padding: 0 50%;
+	margin-left: 20vw;
 }
+
+#update {
+	margin-top: 50px;
+	padding: 0 40%;
+}
+
+.modal-content {
+	width: 60%;
+}
+
+
 
 
 /***********************
@@ -126,6 +135,20 @@ li {
   transform: translate(25%,0);
   -webkit-transform: translate(25%,0);
   -moz-transform: translate(25%,0);
+#text {
+	padding: 0 20%;
+}
+
+/***********************
+/* result styles
+***********************/
+
+i {
+	color: #B00000;
+}
+
+#edit {
+	color: #2C6FAE;
 }
 
 
