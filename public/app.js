@@ -191,6 +191,8 @@ app.controller('mainController', ['$http', function($http) {
       console.log(response.data.similartracks.track)
       controller.showResults = true;
       controller.searchResults = response.data.similartracks.track;
+      controller.artist = '';
+      controller.song = '';
     }, function(error){
       console.log(error);
     })
