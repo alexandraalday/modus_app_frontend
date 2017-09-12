@@ -7,7 +7,7 @@ body {
 ***********************/
 
 #navigation {
-	background-color: #D51007;
+	background-color: black;
 	height: 70px;
 	padding-top: 1%;
 	padding-left: 5%;
@@ -75,7 +75,7 @@ li {
 ***********************/
 
 #footer {
-  background-color: #f9f9f9;
+  background-color: black;
   position: fixed;
   right: 0;
   bottom: 0;
@@ -93,5 +93,5 @@ li {
 }
 
 #footer a {
-	color: #191414;
+	color: #D51007;
 }

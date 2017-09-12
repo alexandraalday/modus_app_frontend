@@ -30,13 +30,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-     <a class="navbar-brand" href="#">modus. </span>
+     <a class="navbar-brand" style="color: #D51007" href="#">modus. </span>
     </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="ctrl.loggedin"><a href="#" style="color: red;">Hello, {{ctrl.user.username}}!</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.goProfile()"><a href="#">My Profile</a></li>
-          <li ng-hide="ctrl.loggedin" ng-click="ctrl.goLogin()"><a href="#">Login</a></li>
+          <li ng-hide="ctrl.loggedin" ng-click="ctrl.goLogin()"><a class="link hover-10" href="#">Login</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.logout()"><a href="#">Logout</a></li>
           <li ng-hide="ctrl.loggedin" ng-click="ctrl.goRegister()"><a href="#">Register</a></li>
         </ul>
