@@ -231,7 +231,6 @@ app.controller('mainController', ['$http', function($http) {
   }
 
   this.editSong = function(updatedSong){
-    console.log(this.song.id)
     $http({
       method: 'PUT',
       headers: {
@@ -251,16 +250,17 @@ app.controller('mainController', ['$http', function($http) {
 
   // delete saved song
   this.deleteSong = function(song){
+    console.log(song.id)
     $http({
       method: 'DELETE',
       headers: {
         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
       },
-      url: this.url + '/users/' + this.user.id + '/songs'
+      url: this.url + '/songs/' + song.id
     }).then(function(response){
       console.log(response);
-
-
+      controller.song = '';
+      controller.goProfile();
     }, function(err){
       console.log(err);
     })
