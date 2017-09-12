@@ -1,37 +1,52 @@
 
 <div ng-if="ctrl.showProfile">
 
-
-    <!-- only displays user info is registered user is logged in --> 
-    <h4 ng-click="ctrl.getUsers()">Click to see secret profile</h4>
-    <div> {{ ctrl.error }} </div>
-    <div ng-repeat="user in ctrl.user">
-      <h1>{{ user.username }}</h1>
-    </div>
-
   <div id='top' class="jumbotron">
     <div class="container-fluid text-center" id="jumbo-dialog">
-      <h1 id='attitle' >Songs</h1>
-      <input type="text" id="filter" onkeyup="filterSongs()" placeholder="Search by mood???">
-      <div ng-repeat="song in ctrl.songs" class="songs">
-          <ul id="myUL">
-            <li><p>{{ song.title }}</p></li>
-          </ul>
-          <p><a ng-click=ctrl.deleteSong() class="btn btn-success btn-sm" id='delete-song-button' role="button">Delete</a></p>
+      <h1>Songs</h1>
 
-      </div>
-
+<!-- 
     <div class="">
       <p><a ng-click=ctrl.goUpdate() class="btn btn-success btn-sm" id='update-user-button' role="button">Update User</a></p>
     </div>
 
     <div class="">
       <p><a ng-click=ctrl.deleteUser() class="btn btn-success btn-sm" id='delete-user-button' role="button">Delete User</a></p>
-    </div>
+    </div> -->
 
     </div>
   </div>
-
+<!-- user's songs -->
+<!-- song results -->
+<div class="col-md-8 col-md-offset-2">
+<table ng-show="ctrl.showSongs" class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th></th>
+      <th>Song</th>
+      <th>Artist</th>
+      <th>Add</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="song in ctrl.user">
+      <td>{{ $index + 1}}</td>
+      <td><img src="{{ song.song.image }}"></td>
+      <td>{{ song.song.name }}</td>
+      <td>{{ song.song.artist }}</td>
+      <td><a href="#"><i class="fa fa-heart-o" title="Add to My Songs" aria-hidden="true" ng-click="ctrl.addSong(song)"></i></a></td>
+      
+    </tr>
+  </tbody>
+</table>
+</div>
+  <div ng-repeat="song in ctrl.user" class="songs">
+    <ul>
+      <li><p>{{ song.name }}</p></li>
+    </ul>
+    <p><a ng-click=ctrl.deleteSong() class="btn btn-success btn-sm" id='delete-song-button' role="button">Delete</a></p>
+  </div>
 
 </div>
 
