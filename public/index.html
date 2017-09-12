@@ -7,6 +7,7 @@
     <link href="./assets/Spotify_Icon_RGB_Black.png" rel="icon" type="image/png" >
     <!-- styles -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
    <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
@@ -73,22 +74,31 @@
 	</div>
 
 <!-- song results -->
-<table ng-show="ctrl.showSearch" class="table table-hover">
+<div class="col-md-8 col-md-offset-2">
+<table ng-show="ctrl.showResults" class="table table-hover">
   <thead>
     <tr>
+      <th>#</th>
+      <th></th>
       <th>Song</th>
       <th>Artist</th>
-      <th>URL</th>
+      <th>Info</th>
+      <th>Add</th>
     </tr>
   </thead>
   <tbody>
     <tr ng-repeat="song in ctrl.searchResults">
+      <td>{{ $index + 1}}</td>
+      <td><img src="{{ song.image[0]['#text'] }}"></td>
       <td>{{ song.name }}</td>
       <td>{{ song.artist.name }}</td>
-      <td>{{ song.url }}</td>
+      <td><a href="{{ song.url }}">More Info</td>
+      <td><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></td>
+      
     </tr>
   </tbody>
 </table>
+</div>
 
 
 <!-- profile section -->
