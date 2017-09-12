@@ -1,7 +1,7 @@
 const app = angular.module('modus', []);
   angular.module('app', ['ngSanitize']);
 
-// whitelist last.fm
+// whitelist api address to use result links
   app.config(['$sceDelegateProvider', function($sceDelegateProvider) {
     $sceDelegateProvider.resourceUrlWhitelist([
         'self',
@@ -11,7 +11,6 @@ const app = angular.module('modus', []);
 
 app.controller('mainController', ['$http', function($http) {
   const controller = this;
-  // let key = process.env.API_KEY;
   // server location
   this.url = 'http://localhost:3000';
   // users
@@ -26,11 +25,12 @@ app.controller('mainController', ['$http', function($http) {
   // songs
   this.showSearch = true;
   this.showResults = false;
+  this.searchResults = [];
+  this.artist = '';
+  this.song = '';
   this.songs = [];
   this.formdata = {};
-  this.searchResults = [];
-
-
+ 
 
   /*****************
      USER CONTROLS
@@ -178,10 +178,15 @@ app.controller('mainController', ['$http', function($http) {
  *****************/
 
 
-  this.searchMood = function(key){
+  this.searchMood = function(artist, song){
+  this.artist = this.artist.split(' ').join('+');
+  console.log(this.artist)
+  this.song = this.song.split(' ').join('+');
+  console.log(this.song)
+  console.log("http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=" + this.artist + "&track=" + this.song +"&api_key=6103b97161ff0685106c6c3ee068dd6f&format=json")
     $http({
       method: 'GET',
-      url: "http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=cher&track=believe&api_key=6103b97161ff0685106c6c3ee068dd6f&format=json"
+      url: "http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=" + this.artist + "&track=" + this.song +"&api_key=6103b97161ff0685106c6c3ee068dd6f&format=json"
     }).then(function(response){
       console.log(response.data.similartracks.track)
       controller.showResults = true;
