@@ -75,6 +75,8 @@ app.controller('mainController', ['$http', function($http) {
 
   // create new user
   this.registerUser = function(userReg){
+    console.log(userReg.username)
+    console.log(userReg.password)
     $http({
       method: 'POST',
       url: this.url + '/users',
