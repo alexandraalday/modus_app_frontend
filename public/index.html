@@ -34,7 +34,7 @@
     </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li ng-show="ctrl.loggedin"><a href="#" style="color:#1DB954;">Hello, {{ctrl.user.username}}!</a></li>
+          <li ng-show="ctrl.loggedin"><a href="#" style="color: red;">Hello, {{ctrl.user.username}}!</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.goProfile()"><a href="#">My Profile</a></li>
           <li ng-hide="ctrl.loggedin" ng-click="ctrl.goLogin()"><a href="#">Login</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.logout()"><a href="#">Logout</a></li>
@@ -49,7 +49,7 @@
 
 	<section id="forms" ng-include="'./forms.html'"></section>
 
- 
+
  	<!-- main jumbotron for primary message/call to action -->
     <div ng-show="ctrl.showSearch" id='top' class="jumbotron">
       <div class="container-fluid text-center" id="jumbo-dialog">
@@ -96,7 +96,7 @@
       <td>{{ song.artist.name }}</td>
       <td><a href="{{ song.url }}">More Info</td>
       <td><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></td>
-      
+
     </tr>
   </tbody>
 </table>

@@ -7,7 +7,7 @@ body {
 ***********************/
 
 #navigation {
-	background-color: #191414;
+	background-color: red;
 	height: 70px;
 	padding-top: 1%;
 	padding-left: 5%;
@@ -23,6 +23,7 @@ body {
 	height: 175%;
 	padding-top: 0;
 }
+
 
 /***********************
 /* form styles
@@ -44,19 +45,23 @@ body {
 }
 
 .jumbotron span {
-	color: #1DB954;
+	color: red;
 }
 
 #login-button {
-	background-color: #1DB954;
+	background-color: red;
 }
 
 #go {
-	background-color: #1DB954;
+	background-color: red;
 }
 
 li {
 	list-style: none;
+}
+
+.btn-success	{
+	border-color: black;
 }
 
 
@@ -79,7 +84,7 @@ li {
 }
 
 #footer span {
-	color: #1DB954;
+	color: red;
 }
 
 #footer a {
