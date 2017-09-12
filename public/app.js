@@ -90,6 +90,11 @@ app.controller('mainController', ['$http', function($http) {
     })
   }
 
+
+
+// {"user"=>{"username"=>"Poopie", "password"=>"Poopie"}, "controller"=>"users", "action"=>"create"}
+
+
   // update user IN PROGRESS
   // this.updateUser = function(updatedUser){
   //   console.log(this.user.id)
