@@ -4,6 +4,9 @@
   <div id='top' class="jumbotron">
     <div class="container-fluid text-center" id="jumbo-dialog">
       <h2>My Songs</h2>
+      <div ng-if="ctrl.userSongs == 0">
+        <p>Looks like you haven't added any songs yet. </p>
+      </div>  
       <button class="btn btn-danger btn-lg" ng-click="ctrl.goSearch()">Back to Search</button>
     </div>
 
@@ -11,12 +14,12 @@
       <div id="update" class="text-center" ng-if="ctrl.showEdit">
         <form ng-submit="ctrl.editSong(updatedSong);">
           <div class="form-group">
-            <input class="form-control" type="Artist" ng-model="updatedSong.artist" placeholder="{{ ctrl.song.artist }}">
+            <input class="form-control" type="Artist" ng-model="updatedSong.artist" placeholder="{{ ctrl.song.artist }}" value="{{ ctrl.song.artist }}">
           </div>
           <div class="form-group">
-            <input class="form-control" type="Title" ng-model="updatedSong.title" placeholder="{{ ctrl.song.title }}">
+            <input class="form-control" type="Title" ng-model="updatedSong.title" placeholder="{{ ctrl.song.title }}" value="{{ ctrl.song.title }}">
           </div>
-          <button type="submit" class="btn btn-primary" >Update</button>
+          <button type="submit" class="btn btn-secondary" >Update</button>
         </form>
       </div>
 
@@ -25,7 +28,7 @@
 
 
 <!-- user's songs -->
-<div ng-if="ctrl.showProfile" class="col-md-8 col-md-offset-2">
+<div ng-if="ctrl.userSongs >= 1" class="col-md-8 col-md-offset-2">
   <table class="table table-hover">
     <thead>
       <tr>
@@ -43,13 +46,16 @@
         <td><img src="{{ song.image }}"></td>
         <td>{{ song.title }}</td>
         <td>{{ song.artist }}</td>
-        <td><a href="#"><i class="fa fa-pencil-square-o" title="Edit this Song" aria-hidden="true" ng-click="ctrl.goEdit(song)"></i></a></td>
+        <td><a href="#"><i id="edit" class="fa fa-pencil-square-o" title="Edit this Song" aria-hidden="true" ng-click="ctrl.goEdit(song)"></i></a></td>
         <td><a href="#"><i class="fa fa-times" title="Remove from My Songs" aria-hidden="true" ng-click="ctrl.deleteSong(song)"></i></a></td>
         
       </tr>
     </tbody>
   </table>
 </div>
+
+
+
 
 
 

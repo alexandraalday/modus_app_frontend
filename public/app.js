@@ -248,9 +248,10 @@ app.controller('mainController', ['$http', function($http) {
       console.log(response);
       controller.song = '';
       controller.goProfile();
+      controller.showEdit = false;
     }, function(err){
       console.log(err);
-      this.showEdit = false;
+      
     })
 }
 
