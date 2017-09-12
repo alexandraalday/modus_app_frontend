@@ -61,24 +61,6 @@ app.controller('mainController', ['$http', function($http) {
     location.reload();
   }
 
-  // show a list of all users if user logged in
-  this.getUsers = function() {
-    $http({
-      url: this.url + '/users',
-      method: 'GET',
-      headers: {
-        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-      }
-    }).then(function(response) {
-      console.log(response);
-      if (response.data.status == 401){
-        this.error = 'Unauthorized';
-      } else {
-        this.users = response.data;
-      }
-    }.bind(this));
-  }
-
   // User Profile
   // this.showUser = function() {
   //   $http({
@@ -147,7 +129,9 @@ app.controller('mainController', ['$http', function($http) {
   }
   this.goProfile = function() {
     this.showSearch = false;
+    this.showResults = false;
     this.showProfile = true;
+    this.getSongs(this.user);
   }
   this.goUpdate = function() {
     this.showUpdate = true;
@@ -205,6 +189,7 @@ app.controller('mainController', ['$http', function($http) {
      SONG CONTROLS
   ******************/
 
+  // user can add a song to their saved songs list
   this.addSong = function(songToAdd){
     console.log(this.user)
     this.currentSong = songToAdd;
@@ -223,7 +208,19 @@ app.controller('mainController', ['$http', function($http) {
     }).catch(err=> console.log(err))
   }
   
-  
+ // show a list of all songs if user logged in
+  this.getSongs = function(user) {
+    $http({
+      url: this.url + '/users/' + this.user.id,
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      }
+    }).then(function(response) {
+      console.log(response.data.songs);
+      controller.userSongs = response.data.songs
+    }.bind(this));
+  }
 
 // planned feature to delete song from user's saved songs list
   this.deleteSong = function(id){

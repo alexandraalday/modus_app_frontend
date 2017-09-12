@@ -17,36 +17,30 @@
     </div>
   </div>
 <!-- user's songs -->
-<!-- song results -->
 <div class="col-md-8 col-md-offset-2">
-<table ng-show="ctrl.showSongs" class="table table-hover">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th></th>
-      <th>Song</th>
-      <th>Artist</th>
-      <th>Add</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="song in ctrl.user">
-      <td>{{ $index + 1}}</td>
-      <td><img src="{{ song.song.image }}"></td>
-      <td>{{ song.song.name }}</td>
-      <td>{{ song.song.artist }}</td>
-      <td><a href="#"><i class="fa fa-heart-o" title="Add to My Songs" aria-hidden="true" ng-click="ctrl.addSong(song)"></i></a></td>
-      
-    </tr>
-  </tbody>
-</table>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th></th>
+        <th>Song</th>
+        <th>Artist</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="song in ctrl.userSongs">
+        <td>{{ $index + 1}}</td>
+        <td><img src="{{ song.image }}"></td>
+        <td>{{ song.name }}</td>
+        <td>{{ song.artist }}</td>
+        <td><a href="#"><i class="fa fa-times" title="Remove from My Songs" aria-hidden="true"></i></a></td>
+        
+      </tr>
+    </tbody>
+  </table>
 </div>
-  <div ng-repeat="song in ctrl.user" class="songs">
-    <ul>
-      <li><p>{{ song.name }}</p></li>
-    </ul>
-    <p><a ng-click=ctrl.deleteSong() class="btn btn-success btn-sm" id='delete-song-button' role="button">Delete</a></p>
-  </div>
+
 
 </div>
 
