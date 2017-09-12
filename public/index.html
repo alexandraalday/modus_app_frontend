@@ -31,6 +31,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+
+     <a class="navbar-brand" style="color: #D51007" href="#">modus. </span>
+    </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-show="ctrl.loggedin"><a href="#" style="color: red;">Hello, {{ctrl.user.username}}!</a></li>
+          <li ng-show="ctrl.loggedin" ng-click="ctrl.goProfile()"><a id="a" class="second after" href="#">My Profile</a></li>
+          <li ng-hide="ctrl.loggedin" ng-click="ctrl.goLogin()"><a id="a" class="second after" href="#">Login</a></li>
+          <li ng-show="ctrl.loggedin" ng-click="ctrl.logout()"><a id="a" class="second after" href="#">Logout</a></li>
+          <li ng-hide="ctrl.loggedin" ng-click="ctrl.goRegister()"><a id="a" class="second after" href="#">Register</a></li>
+
      <a class="navbar-brand" href="#" ng-click="ctrl.goSearch()">modus.</a>
     </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -50,7 +61,7 @@
 
 	<section id="forms" ng-include="'./forms.html'"></section>
 
- 
+
  	<!-- main jumbotron for primary message/call to action -->
     <div ng-show="ctrl.showSearch" id='top' class="jumbotron">
       <div class="container-fluid text-center" id="jumbo-dialog">
@@ -58,7 +69,7 @@
         <p  class="lead"> Find songs to fit your mood.</p>
         <p id='text'>
             Looking for the best <i>energetic</i> tracks?
-            Enter the artist's name and title of a song that makes you feel similarly. Modus will serve up 100 songs to make you feel the same. <br/>Log in to save the song to your list for later. 
+            Enter the artist's name and title of a song that makes you feel similarly. Modus will serve up 100 songs to make you feel the same. <br/>Log in to save the song to your list for later.
         </p>
         <!-- search -->
         <div id="search-form" class="intro-form row">
@@ -68,7 +79,7 @@
             <input type="text" class="form-control input-lg"
               id="song-title" placeholder="Song Title" ng-model="ctrl.song">
             <br>
-            <button class="btn btn-success btn-lg" id='go' role="button">Find songs</button>
+            <button class="btn btn-success btn-lg bttn btn-7" id='go' role="button">Find songs<i class="glyphicon glyphicon-search"></i></button>
            </form>
         </div>
       </div>
@@ -94,8 +105,10 @@
       <td>{{ song.name }}</td>
       <td>{{ song.artist.name }}</td>
       <td><a href="{{ song.url }}">More Info</td>
+      <td><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></td>
+
       <td><a href="#"><i id="like" class="fa fa-heart-o" title="Add to My Songs" aria-hidden="true" ng-click="ctrl.addSong(song)"></i></a></td>
-      
+
     </tr>
   </tbody>
 </table>
@@ -116,7 +129,7 @@
     <div id="footer">
       <div class="container text-center">
             <p class="text-muted">
-                Powered by <a href="http://www.last.fm">Last.fm</a>. Made with <span>&hearts;</span> by <a href="https://github.com/alexandraalday">Alexandra Alday</a> and <a href="https://github.com/2asato">Aaron Sato</a></p>
+                Powered by <a href="http://last.fm">last.fm</a>. Made with <span>&hearts;</span> by <a href="https://github.com/alexandraalday">Alexandra Alday</a> and <a href="https://github.com/2asato">Aaron Sato</a></p>
             </p>
       </div>
 	</div>
