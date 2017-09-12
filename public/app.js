@@ -134,6 +134,12 @@ app.controller('mainController', ['$http', function($http) {
     this.showProfile = true;
     this.getSongs(this.user);
   }
+  this.goSearch = function() {
+    this.showSearch = true;
+    this.showResults = false;
+    this.showProfile = false;
+    this.userSongs = [];
+  }
   this.goUpdate = function() {
     this.showUpdate = true;
   }
