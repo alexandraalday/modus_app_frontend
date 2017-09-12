@@ -14,7 +14,10 @@ app.controller('mainController', ['$http', function($http) {
   this.showRegister = false;
   this.showLogin = false;
   this.loggedin = false;
+  this.showProfile = false;
+  this.showUpdate = false;
   // songs
+  this.showSearch = true;
   this.songs = [];
   this.formdata = {};
   this.searchResults = [];
@@ -67,16 +70,15 @@ app.controller('mainController', ['$http', function($http) {
   }
 
   // User Profile
-  // this.showUser = function() {
-  //   $http({
-  //     url: this.url + '/users/' + id,
-  //     method: 'GET',
-  //     data:
-  //   }).then(response => {
-  //     console.log(response);
-  //     this.users = response.data
-  //   })
-  // }
+  this.showUser = function() {
+    $http({
+      url: this.url + '/users/' + id,
+      method: 'GET',
+    }).then(response => {
+      console.log(response);
+      this.users = response.data
+    })
+  }
 
   // create new user
   this.registerUser = function(userReg){
@@ -94,11 +96,16 @@ app.controller('mainController', ['$http', function($http) {
   }
 
   // update user
-  this.updateUser = function(id){
+  this.updateUser = function(updatedUser){
+    console.log(this.user.id)
+    console.log(updatedUser)
     $http({
       method: 'PUT',
-      url: this.url + '/users/' + id,
-      data: this.updatedUser
+      url: this.url + '/users/' + this.user.id,
+      headers: {
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
+      },
+      data: this.formdata
     }).then(function(response){
       console.log(response);
     }, function(err){
@@ -128,6 +135,20 @@ app.controller('mainController', ['$http', function($http) {
     this.showLogin = true;
     this.showRegister = false;
   }
+  this.goProfile = function() {
+    this.showSearch = false;
+    this.showProfile = true;
+  }
+  this.goUpdate = function() {
+    this.showUpdate = true;
+  }
+  this.registerForm = function(){
+    if(this.showRegister) {
+    }
+    else {
+      this.showRegister = !this.showRegister;
+    }
+  }
   this.loginForm = function(){
     if(this.showLogin){
     }
@@ -135,11 +156,11 @@ app.controller('mainController', ['$http', function($http) {
       this.showLogin = !this.showLogin;
     }
   }
-  this.registerForm = function(){
-    if(this.showRegister) {
+  this.updateForm = function(){
+    if(this.showUpdate) {
     }
     else {
-      this.showRegister = !this.showRegister;
+      this.showUpdate = !this.showUpdate;
     }
   }
   
@@ -152,7 +173,7 @@ app.controller('mainController', ['$http', function($http) {
   this.searchMood = function(key){
     $http({
       method: 'GET',
-      url: "http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=cher&track=believe&api_key=" + key + "&format=json"
+      url: "http://ws.audioscrobbler.com/2.0/?method=track.getsimilar&artist=cher&track=believe&api_key=6103b97161ff0685106c6c3ee068dd6f&format=json"
     }).then(function(response){
       console.log(response.data.similartracks.track)
       controller.displaySearchResults = true;
