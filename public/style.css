@@ -8,7 +8,7 @@ body {
 
 #navigation {
 	background-color: black;
-	height: 70px;
+	min-height: 70px;
 	padding-top: 1%;
 	padding-left: 5%;
 	padding-right: 5%;
@@ -59,8 +59,6 @@ a.second:after{
 .modal-content {
 	width: 60%;
 }
-
-
 
 
 /***********************
