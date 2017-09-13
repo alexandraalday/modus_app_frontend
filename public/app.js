@@ -10,9 +10,9 @@ const app = angular.module('modus', []);
   }]);
 
 app.controller('mainController', ['$http', function($http) {
-  const controller = this;
+  let controller = this;
   // server location
-  this.url = 'https://modus-backend.herokuapp.com';
+  this.url = 'https://modus-backend.herokuapp.com/';
   // users
   this.user = {};
   this.users = [];
@@ -32,7 +32,7 @@ app.controller('mainController', ['$http', function($http) {
   this.song = '';
   this.songs = [];
   this.currentSong = {};
-  this.formdata = {};
+
  
 
   /*****************
@@ -62,17 +62,6 @@ app.controller('mainController', ['$http', function($http) {
     location.reload();
   }
 
-  // User Profile
-  // this.showUser = function() {
-  //   $http({
-  //     url: this.url + '/users/' + id,
-  //     method: 'GET',
-  //   }).then(response => {
-  //     console.log(response);
-  //     this.users = response.data
-  //   })
-  // }
-
   // create new user
   this.registerUser = function(userReg){
     console.log(userReg.username)
@@ -90,41 +79,6 @@ app.controller('mainController', ['$http', function($http) {
     })
   }
 
-
-
-// {"user"=>{"username"=>"Poopie", "password"=>"Poopie"}, "controller"=>"users", "action"=>"create"}
-
-
-  // update user IN PROGRESS
-  // this.updateUser = function(updatedUser){
-  //   console.log(this.user.id)
-  //   console.log(updatedUser)
-  //   $http({
-  //     method: 'PUT',
-  //     url: this.url + '/users/' + this.user.id,
-  //     headers: {
-  //       Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('token'))
-  //     },
-  //     data: this.formdata
-  //   }).then(function(response){
-  //     console.log(response);
-  //   }, function(err){
-  //     console.log(err);
-  //   })
-  // }
-
-  // delete user IN PROGRESS
-  // this.deleteUser = function(id){
-  //   $http({
-  //     method: 'DELETE',
-  //     url: this.url + '/users/' + id
-  //   }).then(function(response){
-  //     console.log(response);
-  //     controller.logout();
-  //   }, function(err){
-  //     console.log(err);
-  //   })
-  // }
 
 // display/hide user forms
   this.goRegister = function(){
@@ -222,7 +176,7 @@ app.controller('mainController', ['$http', function($http) {
       }}
     }).then(response=>{
       console.log(response);
-      this.userSongs.unshift(response.data);
+      controller.userSongs.unshift(response.data);
     }).catch(err=> console.log(err))
   }
   

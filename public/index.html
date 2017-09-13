@@ -2,10 +2,9 @@
 <html ng-app="modus">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>modus.</title>
     <!-- favicon -->
-    <link href="" rel="icon" type="image/png" >
+    <link href="https://d30y9cdsu7xlg0.cloudfront.net/png/74308-200.png" rel="icon" type="image/png" >
     <!-- styles -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,20 +19,19 @@
 
   <body ng-controller="mainController as ctrl">
 
-  <!--   navbar  -->
-  <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" id="navigation">
-  <div class="container-fluid">
-    <div class="site-nav">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-     <a class="navbar-brand" href="#" ng-click="ctrl.goSearch()">modus.</a>
-    </div>
+    <!--   navbar  -->
+    <nav class="navbar navbar-inverse navbar-default navbar-fixed-top" id="navigation">
+    <div class="container-fluid">
+      <div class="site-nav">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#" ng-click="ctrl.goSearch()">modus.</a>
+      </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li ng-show="ctrl.loggedin"><a href="#" style="color:#CF0F0B;">Hello, {{ctrl.user.username}}!</a></li>
@@ -75,52 +73,45 @@
       </div>
 	</div>
 
-<!-- song results -->
-<div class="col-md-8 col-md-offset-2">
-<table ng-show="ctrl.showResults" class="table table-hover">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th></th>
-      <th>Song</th>
-      <th>Artist</th>
-      <th>Info</th>
-      <th>Add</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr ng-repeat="song in ctrl.searchResults">
-      <td>{{ $index + 1}}</td>
-      <td><img src="{{ song.image[0]['#text'] }}"></td>
-      <td>{{ song.name }}</td>
-      <td>{{ song.artist.name }}</td>
-      <td><a href="{{ song.url }}">More Info</td>
-      <td><a href="#"><i id="like" class="fa fa-heart-o" title="Add to My Songs" aria-hidden="true" ng-click="ctrl.addSong(song)"></i></a></td>
+  <!-- song results -->
+  <div class="col-md-8 col-md-offset-2">
+  <table ng-show="ctrl.showResults" class="table table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th></th>
+        <th>Song</th>
+        <th>Artist</th>
+        <th>Info</th>
+        <th>Add</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="song in ctrl.searchResults">
+        <td>{{ $index + 1}}</td>
+        <td><img src="{{ song.image[0]['#text'] }}"></td>
+        <td>{{ song.name }}</td>
+        <td>{{ song.artist.name }}</td>
+        <td><a href="{{ song.url }}">More Info</td>
+        <td><a href="#"><i id="like" class="fa fa-heart-o" title="Add to My Songs" aria-hidden="true" ng-click="ctrl.addSong(song)"></i></a></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
 
-    </tr>
-  </tbody>
-</table>
-</div>
 
-
-<!-- profile section -->
+  <!-- profile section -->
   <section id="profile" ng-include="'./user.html'"></section>
 
 
-
-
-
-
-
-
 	<!-- footer section -->
-    <div id="footer">
-      <div class="container text-center">
-            <p class="text-muted">
-                Powered by <a href="http://www.last.fm">Last.fm</a>. Made with <span>&hearts;</span> by <a href="https://github.com/alexandraalday">Alexandra Alday</a> and <a href="https://github.com/2asato">Aaron Sato</a></p>
-            </p>
-      </div>
-</div>
+  <div id="footer">
+    <div class="container text-center">
+      <p class="text-muted">
+          Powered by <a href="http://www.last.fm">Last.fm</a>. Made with <span>&hearts;</span> by <a href="https://github.com/alexandraalday">Alexandra Alday</a> and <a href="https://github.com/2asato">Aaron Sato</a></p>
+      </p>
+    </div>
+  </div>
 
   </body>
 </html>
