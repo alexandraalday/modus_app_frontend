@@ -6,8 +6,8 @@
       <h2>My Songs</h2>
       <div ng-if="ctrl.userSongs.length == 0">
         <p>Looks like you haven't added any songs yet. </p>
-      </div>  
-      <button class="btn btn-danger btn-lg" ng-click="ctrl.goSearch()">Back to Search</button>
+      </div>
+      <button class="btn btn-danger btn-lg bttn1 btn-4 btn-4d icon-arrow-left"  ng-click="ctrl.goSearch()">Back to Search</button>
     </div>
 
       <!-- update song form-->
@@ -48,26 +48,8 @@
         <td>{{ song.artist }}</td>
         <td><a href="#"><i id="edit" class="fa fa-pencil-square-o" title="Edit this Song" aria-hidden="true" ng-click="ctrl.goEdit(song)"></i></a></td>
         <td><a href="#"><i class="fa fa-times" title="Remove from My Songs" aria-hidden="true" ng-click="ctrl.deleteSong(song)"></i></a></td>
-        
+
       </tr>
     </tbody>
   </table>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

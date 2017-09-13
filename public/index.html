@@ -8,6 +8,7 @@
     <!-- styles -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="style.css">
    <!-- scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js" charset="utf-8"></script>
@@ -34,7 +35,7 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li ng-show="ctrl.loggedin"><a href="#" style="color:#CF0F0B;">Hello, {{ctrl.user.username}}!</a></li>
+          <li ng-show="ctrl.loggedin"><a href="#" style="color:#B00000;">Hello, {{ctrl.user.username}}!</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.goProfile()"><a id="a" class="second after" href="#">My Profile</a></li>
           <li ng-hide="ctrl.loggedin" ng-click="ctrl.goLogin()"><a id="a" class="second after" href="#" data-toggle="modal" data-target="#login">Login</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.logout()"><a id="a" class="second after" href="#">Logout</a></li>
@@ -73,7 +74,6 @@
       </div>
 	</div>
 
-<<<<<<< HEAD
 <!-- song results -->
 <div class="col-md-8 col-md-offset-2">
 <table ng-show="ctrl.showResults" class="table table-hover">
@@ -104,7 +104,6 @@
 
 
 <!-- profile section -->
-=======
   <!-- song results -->
   <div class="col-md-8 col-md-offset-2">
   <table ng-show="ctrl.showResults" class="table table-hover">
@@ -133,7 +132,6 @@
 
 
   <!-- profile section -->
->>>>>>> 8c91957f8dbf86679a1f7b7a71b263b2c41adf25
   <section id="profile" ng-include="'./user.html'"></section>
 
 
