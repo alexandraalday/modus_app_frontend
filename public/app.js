@@ -206,7 +206,10 @@ app.controller('mainController', ['$http', function($http) {
   // user can add a song to their saved songs list
   this.addSong = function(songToAdd){
     console.log(this.user)
-    console.log(songToAdd)
+    console.log(songToAdd.artist.name)
+    console.log(songToAdd.name)
+    console.log(image: songToAdd.image[0]['#text'])
+    console.log(controller.user.id)
     this.currentSong = songToAdd;
     $http({
       method: 'POST',
