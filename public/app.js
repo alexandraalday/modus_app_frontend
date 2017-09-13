@@ -12,7 +12,7 @@ const app = angular.module('modus', []);
 app.controller('mainController', ['$http', function($http) {
   let controller = this;
   // server location
-  this.url = 'https://modus-backend.herokuapp.com/';
+  this.url = 'https://modus-backend.herokuapp.com';
   // users
   this.user = {};
   this.users = [];
