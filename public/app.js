@@ -206,6 +206,7 @@ app.controller('mainController', ['$http', function($http) {
   // user can add a song to their saved songs list
   this.addSong = function(songToAdd){
     console.log(this.user)
+    console.log(songToAdd)
     this.currentSong = songToAdd;
     $http({
       method: 'POST',
@@ -218,7 +219,7 @@ app.controller('mainController', ['$http', function($http) {
       }}
     }).then(response=>{
       console.log(response);
-      // this.userSongs.unshift(response.data);
+      this.userSongs.unshift(response.data);
     }).catch(err=> console.log(err))
   }
   
