@@ -208,7 +208,7 @@ app.controller('mainController', ['$http', function($http) {
     console.log(this.user)
     console.log(songToAdd.artist.name)
     console.log(songToAdd.name)
-    console.log(image: songToAdd.image[0]['#text'])
+    console.log(songToAdd.image[0]['#text'])
     console.log(controller.user.id)
     this.currentSong = songToAdd;
     $http({
