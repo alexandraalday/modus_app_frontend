@@ -36,13 +36,8 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-
-          <li ng-show="ctrl.loggedin"><a href="#" style="color:#B00000;">Hello, {{ctrl.user.username}}!</a></li>
-          <li ng-show="ctrl.loggedin" ng-click="ctrl.goProfile()"><a id="a" class="second after" href="#">My Profile</a></li>
-
-          <li ng-show="ctrl.loggedin"><a style="color:#CF0F0B;">Hello, {{ctrl.user.username}}!</a></li>
+          <li ng-show="ctrl.loggedin"><a style="color:#CF0F0B;">Welcome back, {{ctrl.user.username}}!</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.goProfile()"><a id="a" class="second after" href="#">My Songs</a></li>
-
           <li ng-hide="ctrl.loggedin" ng-click="ctrl.goLogin()"><a id="a" class="second after" href="#" data-toggle="modal" data-target="#login">Login</a></li>
           <li ng-show="ctrl.loggedin" ng-click="ctrl.logout()"><a id="a" class="second after" href="#">Logout</a></li>
           <li ng-hide="ctrl.loggedin" ng-click="ctrl.goRegister()"><a id="a" class="second after" href="#" data-toggle="modal" data-target="#register">Register</a></li>
