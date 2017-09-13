@@ -4,7 +4,7 @@
   <div id='top' class="jumbotron">
     <div class="container-fluid text-center" id="jumbo-dialog">
       <h2>My Songs</h2>
-      <div ng-if="ctrl.userSongs == 0">
+      <div ng-if="ctrl.userSongs.length == 0">
         <p>Looks like you haven't added any songs yet. </p>
       </div>  
       <button class="btn btn-danger btn-lg" ng-click="ctrl.goSearch()">Back to Search</button>
@@ -28,7 +28,7 @@
 
 
 <!-- user's songs -->
-<div ng-if="ctrl.userSongs >= 1" class="col-md-8 col-md-offset-2">
+<div ng-if="ctrl.userSongs.length >= 1" class="col-md-8 col-md-offset-2">
   <table class="table table-hover">
     <thead>
       <tr>
