@@ -1,6 +1,8 @@
 # PROJECT: MODUS
 **LIVE SITE:**
 https://modus-app.herokuapp.com/
+**SERVER:**
+https://github.com/alexandraalday/lasers-vs-bubbles
 
 ## TEAM
 Alexandra Alday<br>
