@@ -10,8 +10,8 @@ Modus is a single page app with a one to many relationship using AngularJS for t
 <img width="1175" alt="screen shot 2017-10-12 at 1 01 06 pm" src="https://user-images.githubusercontent.com/17508245/31516547-c928f2b2-af4d-11e7-89b6-1c88f732be15.png">
 
 **Team**
-Alexandra Alday<br>
-Aaron Sato
+* Alexandra Alday
+* Aaron Sato
 
 **Technologies Used:** 
 * HTML
